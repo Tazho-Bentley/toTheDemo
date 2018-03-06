@@ -211,6 +211,21 @@
                         <span data-localize="sidebar.nav.WIDGETS">Manage Accounts</span>
                      </a>
                   </li>
+                  <li class="nav-heading ">
+                     <span data-localize="sidebar.heading.HEADER">Setups</span>
+                  </li>
+                  <li class=" ">
+                     <a href="{{ route('roles.index') }}" title="Widgets">
+                        <em class="icon-grid"></em>
+                        <span data-localize="sidebar.nav.WIDGETS">Manage Roles</span>
+                     </a>
+                  </li>
+                  <li class=" ">
+                     <a href="{{ route('users.index') }}" title="Widgets">
+                        <em class="icon-grid"></em>
+                        <span data-localize="sidebar.nav.WIDGETS">Manage Super Users</span>
+                     </a>
+                  </li>
                </ul>
                <!-- END sidebar nav-->
             </nav>
