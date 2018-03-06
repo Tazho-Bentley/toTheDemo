@@ -1,25 +1,29 @@
 <?php
+namespace App\Http\Controllers;
 
-use App\Permission;
-use App\Role;
-use DB;
+
 use Illuminate\Http\Request;
-use App\Http\Requests;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Log;
+use App\Http\Controllers\Controller;
+use App\Role;
+use App\Permission;
+use DB;
+
+
 class RoleController extends Controller
 {
-    //
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\Http\Response|\Illuminate\View\View
+     * @return \Illuminate\Http\Response
      */
     public function index(Request $request)
     {
         $roles = Role::orderBy('id','DESC')->paginate(5);
-        return view('roles.index',compact('roles'))->with('i', ($request->input('page', 1) - 1) * 5);
+        return view('administrator.roles.index',compact('roles'))
+            ->with('i', ($request->input('page', 1) - 1) * 5);
     }
+
+
     /**
      * Show the form for creating a new resource.
      *
@@ -28,8 +32,10 @@ class RoleController extends Controller
     public function create()
     {
         $permission = Permission::get();
-        return view('roles.create',compact('permission'));
+        return view('administrator.roles.create',compact('permission'));
     }
+
+
     /**
      * Store a newly created resource in storage.
      *
@@ -44,17 +50,22 @@ class RoleController extends Controller
             'description' => 'required',
             'permission' => 'required',
         ]);
+
+
         $role = new Role();
         $role->name = $request->input('name');
         $role->display_name = $request->input('display_name');
         $role->description = $request->input('description');
         $role->save();
+
+
         foreach ($request->input('permission') as $key => $value) {
             $role->attachPermission($value);
         }
-        Log::info('Role '.$role->id.' Created By: '.Auth::User()->name);
-        return redirect()->route('roles.index')
-            ->with('success','Role created successfully');
+
+
+        return redirect()->route('administrator.roles.index')
+                        ->with('success','Role created successfully');
     }
     /**
      * Display the specified resource.
@@ -68,8 +79,12 @@ class RoleController extends Controller
         $rolePermissions = Permission::join("permission_role","permission_role.permission_id","=","permissions.id")
             ->where("permission_role.role_id",$id)
             ->get();
-        return view('roles.show',compact('role','rolePermissions'));
+
+
+        return view('administrator.roles.show',compact('role','rolePermissions'));
     }
+
+
     /**
      * Show the form for editing the specified resource.
      *
@@ -82,8 +97,12 @@ class RoleController extends Controller
         $permission = Permission::get();
         $rolePermissions = DB::table("permission_role")->where("permission_role.role_id",$id)
             ->lists('permission_role.permission_id','permission_role.permission_id');
-        return view('roles.edit',compact('role','permission','rolePermissions'));
+
+
+        return view('administrator.roles.edit',compact('role','permission','rolePermissions'));
     }
+
+
     /**
      * Update the specified resource in storage.
      *
@@ -98,18 +117,25 @@ class RoleController extends Controller
             'description' => 'required',
             'permission' => 'required',
         ]);
+
+
         $role = Role::find($id);
         $role->display_name = $request->input('display_name');
         $role->description = $request->input('description');
         $role->save();
+
+
         DB::table("permission_role")->where("permission_role.role_id",$id)
             ->delete();
+
+
         foreach ($request->input('permission') as $key => $value) {
             $role->attachPermission($value);
         }
-        Log::info('Role '.$role->id.' Updated By: '.Auth::User()->name);
-        return redirect()->route('roles.index')
-            ->with('success','Role updated successfully');
+
+
+        return redirect()->route('administrator.roles.index')
+                        ->with('success','Role updated successfully');
     }
     /**
      * Remove the specified resource from storage.
@@ -120,7 +146,7 @@ class RoleController extends Controller
     public function destroy($id)
     {
         DB::table("roles")->where('id',$id)->delete();
-        return redirect()->route('roles.index')
-            ->with('success','Role deleted successfully');
+        return redirect()->route('administrator.roles.index')
+                        ->with('success','Role deleted successfully');
     }
 }

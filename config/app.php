@@ -168,6 +168,7 @@ return [
          * Custom Service Providers
          */
         Zizaco\Entrust\EntrustServiceProvider::class,
+        Collective\Html\HtmlServiceProvider::class,
 
         /*
          * Package Service Providers...
@@ -236,6 +237,8 @@ return [
          * Custom Aliases
          */
         'Entrust'   => Zizaco\Entrust\EntrustFacade::class,
+        'Form' => Collective\Html\FormFacade::class,
+        'Html' => Collective\Html\HtmlFacade::class,
 
     ],
 
