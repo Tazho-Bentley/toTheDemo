@@ -4,10 +4,10 @@
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
-                <h2>Edit New User</h2>
+                <h2>Edit Point of Sale</h2>
             </div>
             <div class="pull-right">
-                <a class="btn btn-primary" href="{{ route('users.index') }}"> Back</a>
+                <a class="btn btn-primary" href="{{ route('pos.index') }}"> Back</a>
             </div>
         </div>
     </div>
@@ -21,81 +21,45 @@
             </ul>
         </div>
     @endif
-    {!! Form::model($user, ['method' => 'PATCH','route' => ['users.update', $user->id]]) !!}
-    <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>Name:</strong>
-                {!! Form::text('name', null, array('placeholder' => 'Name','class' => 'form-control')) !!}
-            </div>
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>Email:</strong>
-                {!! Form::text('email', null, array('placeholder' => 'Email','class' => 'form-control')) !!}
-            </div>
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>Phone:</strong>
-                {!! Form::text('phone', null, array('placeholder' => 'Phone','class' => 'form-control')) !!}
-            </div>
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>Address:</strong>
-                {!! Form::text('address', null, array('placeholder' => 'Address','class' => 'form-control')) !!}
-            </div>
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>Contact Person:</strong>
-                {!! Form::text('contact_person', null, array('placeholder' => 'contact_person','class' => 'form-control')) !!}
-            </div>
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>Company Type:</strong>
-                <select name="company_type" class="form-control custom-select custom-select-sm">
-                        <option value="{{$user->company_type}}">{{$user->company_type}}</option>
-                        <option value="Admin">Administrator</option>
-                        <option value="Company">Company</option>
-                        <option value="Merchant">Merchant</option>
-                    </select>
-            </div>
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>Account Type:</strong>
-                <select name="account_type" class="form-control custom-select custom-select-sm">
-                        <option value="{{$user->account_type}}">{{$user->account_type}}</option>
-                        <option value="Admin">Administrator</option>
-                        <option value="Company">Company</option>
-                        <option value="Merchant">Merchant</option>
-                    </select>
+    {!! Form::model($user, ['method' => 'PATCH','route' => ['pos.update', $user->id]]) !!}
+    <div class="form-group row">
+                <label class="col-xl-2 col-form-label">POS ID</label>
+                <div class="col-xl-10">
+                    {!! Form::text('pos_id', null, array('placeholder' => 'Point of Sale ID','class' => 'form-control')) !!}
                 </div>
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>Password:</strong>
-                {!! Form::password('password', array('placeholder' => 'Password','class' => 'form-control')) !!}
             </div>
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>Confirm Password:</strong>
-                {!! Form::password('confirm-password', array('placeholder' => 'Confirm Password','class' => 'form-control')) !!}
+            <div class="form-group row">
+                <label class="col-xl-2 col-form-label">Number</label>
+                <div class="col-xl-10">
+                {!! Form::text('number', null, array('placeholder' => 'Number','class' => 'form-control')) !!}
+                </div>
             </div>
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>Role:</strong>
-                {!! Form::select('roles[]', $roles,$userRole, array('class' => 'form-control','multiple')) !!}
+            <div class="form-group row">
+                <label class="col-xl-2 col-form-label">Serial Number</label>
+                <div class="col-xl-10">
+                    {!! Form::text('serial_number', null, array('placeholder' => 'Serial Number','class' => 'form-control')) !!}
+                </div>
             </div>
-        </div>
+            <div class="form-group row">
+                <label class="col-xl-2 col-form-label">SIM Number</label>
+                <div class="col-xl-10">
+                    {!! Form::text('sim_number', null, array('placeholder' => 'SIM Number','class' => 'form-control')) !!}
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-xl-2 col-form-label">Password</label>
+                <div class="col-xl-10">
+                    {!! Form::password('password', array('placeholder' => 'Password','class' => 'form-control')) !!}
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-xl-2 col-form-label">Repeat Password</label>
+                <div class="col-xl-10">
+                    {!! Form::password('confirm-password', array('placeholder' => 'Confirm Password','class' => 'form-control')) !!}
+                </div>
+            </div>
         <div class="col-xs-12 col-sm-12 col-md-12 text-center">
             <button type="submit" class="btn btn-primary">Submit</button>
         </div>
-    </div>
     {!! Form::close() !!}
 @endsection

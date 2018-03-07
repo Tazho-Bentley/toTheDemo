@@ -4,10 +4,10 @@
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
-                <h2>Create New Account</h2>
+                <h2>Create New Point of Sale</h2>
             </div>
             <div class="pull-right">
-                <a class="btn btn-primary" href="{{ route('users.index') }}"> Back</a>
+                <a class="btn btn-primary" href="{{ route('pos.index') }}"> Back</a>
             </div>
         </div>
     </div>
@@ -21,60 +21,32 @@
             </ul>
         </div>
     @endif
-    {!! Form::open(array('route' => 'users.store','method'=>'POST', 'class'=>'form-horizontal')) !!}
+    {!! Form::open(array('route' => 'pos.store','method'=>'POST', 'class'=>'form-horizontal')) !!}
     <!-- START card-->
     <div class="card card-default">
         <div class="card-body">
             <div class="form-group row">
-                <label class="col-xl-2 col-form-label">Name</label>
+                <label class="col-xl-2 col-form-label">POS ID</label>
                 <div class="col-xl-10">
-                    {!! Form::text('name', null, array('placeholder' => 'Name','class' => 'form-control')) !!}
+                    {!! Form::text('pos_id', null, array('placeholder' => 'Point of Sale ID','class' => 'form-control')) !!}
                 </div>
             </div>
             <div class="form-group row">
-                <label class="col-xl-2 col-form-label">Address</label>
+                <label class="col-xl-2 col-form-label">Number</label>
                 <div class="col-xl-10">
-                {!! Form::text('address', null, array('placeholder' => 'Physical Address','class' => 'form-control')) !!}
+                {!! Form::text('number', null, array('placeholder' => 'Number','class' => 'form-control')) !!}
                 </div>
             </div>
             <div class="form-group row">
-                <label class="col-xl-2 col-form-label">Email</label>
+                <label class="col-xl-2 col-form-label">Serial Number</label>
                 <div class="col-xl-10">
-                    {!! Form::text('email', null, array('placeholder' => 'Email','class' => 'form-control')) !!}
+                    {!! Form::text('serial_number', null, array('placeholder' => 'Serial Number','class' => 'form-control')) !!}
                 </div>
             </div>
             <div class="form-group row">
-                <label class="col-xl-2 col-form-label">Phone Number</label>
+                <label class="col-xl-2 col-form-label">SIM Number</label>
                 <div class="col-xl-10">
-                {!! Form::text('phone', null, array('placeholder' => 'Phone Number','class' => 'form-control')) !!}
-                </div>
-            </div>
-            <div class="form-group row">
-                <label class="col-xl-2 col-form-label">Account Type</label>
-                <div class="col-xl-10">
-                    <select name="account_type" class="custom-select custom-select-sm">
-                        <option value="User">Select Account Type</option>
-                        <option value="Admin">Administrator</option>
-                        <option value="Company">Company</option>
-                        <option value="Merchant">Merchant</option>
-                    </select>
-                </div>
-            </div>
-            <div class="form-group row">
-                <label class="col-xl-2 col-form-label">Company Type</label>
-                <div class="col-xl-10">
-                    <select name="company_type" class="custom-select custom-select-sm">
-                        <option value="Company">Select Company Type</option>
-                        <option value="Admin">Administrator</option>
-                        <option value="Company">Company</option>
-                        <option value="Merchant">Merchant</option>
-                    </select>
-                </div>
-            </div>
-            <div class="form-group row">
-                <label class="col-xl-2 col-form-label">Contact Person</label>
-                <div class="col-xl-10">
-                {!! Form::text('contact_person', null, array('placeholder' => 'Contact Person','class' => 'form-control')) !!}
+                    {!! Form::text('sim_number', null, array('placeholder' => 'SIM Number','class' => 'form-control')) !!}
                 </div>
             </div>
             <div class="form-group row">
@@ -87,12 +59,6 @@
                 <label class="col-xl-2 col-form-label">Repeat Password</label>
                 <div class="col-xl-10">
                     {!! Form::password('confirm-password', array('placeholder' => 'Confirm Password','class' => 'form-control')) !!}
-                </div>
-            </div>
-            <div class="form-group row">
-                <label class="col-xl-2 col-form-label">Account System Roles</label>
-                <div class="col-xl-10">
-                    {!! Form::select('roles[]', $roles,[], array('class' => 'form-control','multiple')) !!}
                 </div>
             </div>
             <div class="form-group row">

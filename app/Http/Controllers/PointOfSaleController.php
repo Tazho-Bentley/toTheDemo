@@ -44,11 +44,11 @@ class PointOfSaleController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'name' => 'required',
-            'phone' => 'required',
-            'address' => 'required',
+            'pos_id' => 'required',
+            'number' => 'required',
+            'serial_number' => 'required',
             'password' => 'required|same:confirm-password',
-            'roles' => 'required'
+            'sim_number' => 'required'
         ]);
 
 
@@ -56,7 +56,7 @@ class PointOfSaleController extends Controller
         $input['password'] = Hash::make($input['password']);
 
 
-        $user = User::create($input);
+        $user = PointOfSale::create($input);
 
 
         return redirect()->route('pos.index')->with('success','POS created successfully');
@@ -101,10 +101,11 @@ class PointOfSaleController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, [
-            'name' => 'required',
-            'email' => 'required|email|unique:users,email,'.$id,
+            'pos_id' => 'required',
+            'number' => 'required',
+            'serial_number' => 'required',
             'password' => 'same:confirm-password',
-            'roles' => 'required'
+            'sim_number' => 'required'
         ]);
 
 
