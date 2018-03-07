@@ -217,6 +217,12 @@
                         <span data-localize="sidebar.nav.WIDGETS">Manage Employees</span>
                      </a>
                   </li>
+                  <li class=" ">
+                     <a href="{{route('employees.index')}}" title="Widgets">
+                        <em class="icon-grid"></em>
+                        <span data-localize="sidebar.nav.WIDGETS">Manage POS</span>
+                     </a>
+                  </li>
                   <li class="nav-heading ">
                      <span data-localize="sidebar.heading.HEADER">SU Setups</span>
                   </li>

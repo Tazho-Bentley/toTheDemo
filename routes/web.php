@@ -47,6 +47,14 @@ Route::group(['middleware' => ['auth']], function() {
 	Route::patch('employees/{id}',['as'=>'employees.update','uses'=>'EmployeeController@update']);
 	Route::delete('employees/{id}',['as'=>'employees.destroy','uses'=>'EmployeeController@destroy']);
 
+	Route::get('pos',['as'=>'pos.index','uses'=>'PointOfSaleController@index']);
+	Route::get('pos-create',['as'=>'pos.create','uses'=>'PointOfSaleController@create']);
+	Route::post('pos/create',['as'=>'pos.store','uses'=>'PointOfSaleController@store']);
+	Route::get('pos-{id}',['as'=>'pos.show','uses'=>'PointOfSaleController@show']);
+	Route::get('pos_edit-{id}',['as'=>'pos.edit','uses'=>'PointOfSaleController@edit']);
+	Route::patch('pos/{id}',['as'=>'pos.update','uses'=>'PointOfSaleController@update']);
+	Route::delete('pos/{id}',['as'=>'pos.destroy','uses'=>'PointOfSaleController@destroy']);
+
     Route::get('roles',['as'=>'roles.index','uses'=>'RoleController@index']);
 	Route::get('roles/create',['as'=>'roles.create','uses'=>'RoleController@create']);
 	Route::post('roles/create',['as'=>'roles.store','uses'=>'RoleController@store']);
