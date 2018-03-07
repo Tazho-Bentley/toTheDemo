@@ -64,7 +64,7 @@ class RoleController extends Controller
         }
 
 
-        return redirect()->route('administrator.roles.index')
+        return redirect()->route('roles.index')
                         ->with('success','Role created successfully');
     }
     /**
@@ -96,7 +96,7 @@ class RoleController extends Controller
         $role = Role::find($id);
         $permission = Permission::get();
         $rolePermissions = DB::table("permission_role")->where("permission_role.role_id",$id)
-            ->lists('permission_role.permission_id','permission_role.permission_id');
+            ->pluck('permission_role.permission_id','permission_role.permission_id')->toArray();
 
 
         return view('administrator.roles.edit',compact('role','permission','rolePermissions'));
@@ -134,7 +134,7 @@ class RoleController extends Controller
         }
 
 
-        return redirect()->route('administrator.roles.index')
+        return redirect()->route('roles.index')
                         ->with('success','Role updated successfully');
     }
     /**
@@ -146,7 +146,7 @@ class RoleController extends Controller
     public function destroy($id)
     {
         DB::table("roles")->where('id',$id)->delete();
-        return redirect()->route('administrator.roles.index')
+        return redirect()->route('roles.index')
                         ->with('success','Role deleted successfully');
     }
 }
