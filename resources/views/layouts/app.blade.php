@@ -218,7 +218,7 @@
                      </a>
                   </li>
                   <li class=" ">
-                     <a href="{{route('employees.index')}}" title="Widgets">
+                     <a href="{{route('pos.index')}}" title="Widgets">
                         <em class="icon-grid"></em>
                         <span data-localize="sidebar.nav.WIDGETS">Manage POS</span>
                      </a>

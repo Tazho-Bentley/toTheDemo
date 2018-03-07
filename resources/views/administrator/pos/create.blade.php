@@ -7,7 +7,7 @@
                 <h2>Create New Account</h2>
             </div>
             <div class="pull-right">
-                <a class="btn btn-primary" href="{{ route('accounts.index') }}"> Back</a>
+                <a class="btn btn-primary" href="{{ route('users.index') }}"> Back</a>
             </div>
         </div>
     </div>
@@ -21,7 +21,7 @@
             </ul>
         </div>
     @endif
-    {!! Form::open(array('route' => 'accounts.store','method'=>'POST', 'class'=>'form-horizontal')) !!}
+    {!! Form::open(array('route' => 'users.store','method'=>'POST', 'class'=>'form-horizontal')) !!}
     <!-- START card-->
     <div class="card card-default">
         <div class="card-body">
@@ -54,6 +54,7 @@
                 <div class="col-xl-10">
                     <select name="account_type" class="custom-select custom-select-sm">
                         <option value="User">Select Account Type</option>
+                        <option value="Admin">Administrator</option>
                         <option value="Company">Company</option>
                         <option value="Merchant">Merchant</option>
                     </select>
@@ -74,30 +75,6 @@
                 <label class="col-xl-2 col-form-label">Contact Person</label>
                 <div class="col-xl-10">
                 {!! Form::text('contact_person', null, array('placeholder' => 'Contact Person','class' => 'form-control')) !!}
-                </div>
-            </div>
-            <div class="form-group row">
-                <label class="col-xl-2 col-form-label">Company/Merchant ID</label>
-                <div class="col-xl-10">
-                {!! Form::text('company_id', null, array('placeholder' => 'Company ID Number','class' => 'form-control')) !!}
-                </div>
-            </div>
-            <div class="form-group row">
-                <label class="col-xl-2 col-form-label">Number of Employess</label>
-                <div class="col-xl-10">
-                {!! Form::text('employee_count', null, array('placeholder' => 'Employee Count','class' => 'form-control')) !!}
-                </div>
-            </div>
-            <div class="form-group row">
-                <label class="col-xl-2 col-form-label">Pay Schedule</label>
-                <div class="col-xl-10">
-                    <select name="pay_schedule" class="custom-select custom-select-sm">
-                        <option value="NULL">Select Schedule Type</option>
-                        <option value="Weekly">Weekly</option>
-                        <option value="Bi-Weekly">Bi-Weekly</option>
-                        <option value="Semi-Monthly">Semi Monthly</option>
-                        <option value="Monthly">Monthly</option>
-                    </select>
                 </div>
             </div>
             <div class="form-group row">

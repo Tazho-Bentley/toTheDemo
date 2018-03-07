@@ -4,10 +4,10 @@
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
-                <h2>Accounts Management</h2>
+                <h2>Point of Sale Management</h2>
             </div>
             <div class="pull-right">
-                <a class="btn btn-success" href="{{ route('accounts.create') }}"> Create New Account</a>
+                <a class="btn btn-success" href="{{ route('pos.create') }}"> Create New POS</a>
             </div>
         </div>
     </div>
@@ -18,28 +18,22 @@
     @endif
     <table class="table table-bordered">
         <tr>
-            <th>No</th>
-            <th>Name</th>
-            <th>Email</th>
-            <th>User Type</th>
+            <th>POS ID</th>
+            <th>Number</th>
+            <th>Serial Number</th>
+            <th>SIM Number</th>
             <th width="280px">Action</th>
         </tr>
         @foreach ($data as $key => $user)
             <tr>
-                <td>{{ ++$i }}</td>
-                <td>{{ $user->name }}</td>
-                <td>{{ $user->email }}</td>
+                <td>{{ $user->pos_id }}</td>
+                <td>{{ $user->number }}</td>
+                <td>{{ $user->serial_number }}</td>
+                <td>{{ $user->sim_number }}</td>
                 <td>
-                    @if(!empty($user->roles))
-                        @foreach($user->roles as $v)
-                            <label class="label label-success">{{ $v->display_name }}</label>
-                        @endforeach
-                    @endif
-                </td>
-                <td>
-                    <a class="btn btn-info" href="{{ route('accounts.show',$user->id) }}">Show</a>
-                    <a class="btn btn-primary" href="{{ route('accounts.edit',$user->id) }}">Edit</a>
-                    {!! Form::open(['method' => 'DELETE','route' => ['accounts.destroy', $user->id],'style'=>'display:inline']) !!}
+                    <a class="btn btn-info" href="{{ route('pos.show',$user->id) }}">Show</a>
+                    <a class="btn btn-primary" href="{{ route('pos.edit',$user->id) }}">Edit</a>
+                    {!! Form::open(['method' => 'DELETE','route' => ['pos.destroy', $user->id],'style'=>'display:inline']) !!}
                     {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
                     {!! Form::close() !!}
                 </td>
