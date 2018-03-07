@@ -37,6 +37,46 @@
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
+                <strong>Phone:</strong>
+                {!! Form::text('phone', null, array('placeholder' => 'Phone','class' => 'form-control')) !!}
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>Address:</strong>
+                {!! Form::text('address', null, array('placeholder' => 'Address','class' => 'form-control')) !!}
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>Contact Person:</strong>
+                {!! Form::text('contact_person', null, array('placeholder' => 'contact_person','class' => 'form-control')) !!}
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>Company Type:</strong>
+                <select name="company_type" class="form-control custom-select custom-select-sm">
+                        <option value="{{$user->company_type}}">{{$user->company_type}}</option>
+                        <option value="Admin">Administrator</option>
+                        <option value="Company">Company</option>
+                        <option value="Merchant">Merchant</option>
+                    </select>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>Account Type:</strong>
+                <select name="account_type" class="form-control custom-select custom-select-sm">
+                        <option value="{{$user->account_type}}">{{$user->account_type}}</option>
+                        <option value="Admin">Administrator</option>
+                        <option value="Company">Company</option>
+                        <option value="Merchant">Merchant</option>
+                    </select>
+                </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
                 <strong>Password:</strong>
                 {!! Form::password('password', array('placeholder' => 'Password','class' => 'form-control')) !!}
             </div>
