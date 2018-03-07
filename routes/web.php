@@ -31,6 +31,13 @@ Route::group(['middleware' => ['auth']], function() {
 	Route::patch('users/{id}',['as'=>'users.update','uses'=>'UserController@update']);
 	Route::delete('users/{id}',['as'=>'users.destroy','uses'=>'UserController@destroy']);
 
+	Route::get('accounts',['as'=>'accounts.index','uses'=>'AccountController@index']);
+	Route::get('accounts-create',['as'=>'accounts.create','uses'=>'AccountController@create']);
+	Route::post('accounts/create',['as'=>'accounts.store','uses'=>'AccountController@store']);
+	Route::get('accounts-{id}',['as'=>'accounts.show','uses'=>'AccountController@show']);
+	Route::get('accounts-edit-{id}',['as'=>'accounts.edit','uses'=>'AccountController@edit']);
+	Route::patch('accounts/{id}',['as'=>'accounts.update','uses'=>'AccountController@update']);
+	Route::delete('accounts/{id}',['as'=>'accounts.destroy','uses'=>'AccountController@destroy']);
 
     Route::get('roles',['as'=>'roles.index','uses'=>'RoleController@index']);
 	Route::get('roles/create',['as'=>'roles.create','uses'=>'RoleController@create']);

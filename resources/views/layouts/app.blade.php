@@ -206,7 +206,7 @@
                      <span data-localize="sidebar.heading.HEADER">Accounts</span>
                   </li>
                   <li class=" ">
-                     <a href="widgets.html" title="Widgets">
+                     <a href="{{route('accounts.index')}}" title="Widgets">
                         <em class="icon-grid"></em>
                         <span data-localize="sidebar.nav.WIDGETS">Manage Accounts</span>
                      </a>
@@ -591,18 +591,6 @@
       <section>
          <!-- Page content-->
          <div class="content-wrapper">
-            <div class="content-heading">
-               <!-- START Language list-->
-               <div class="float-right">
-                  <div class="btn-group">
-                     <button class="btn btn-secondary dropdown-toggle dropdown-toggle-nocaret" type="button" data-toggle="dropdown">English</button>
-                     <div class="dropdown-menu dropdown-menu-right-forced animated fadeInUpShort" role="menu"><a class="dropdown-item" href="#" data-set-lang="en">English</a><a class="dropdown-item" href="#" data-set-lang="es">Spanish</a>
-                     </div>
-                  </div>
-               </div>
-               <!-- END Language list-->Dashboard
-               <small data-localize="dashboard.WELCOME"></small>
-            </div>
             @yield('content')
          </div>
       </section>
