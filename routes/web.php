@@ -39,6 +39,14 @@ Route::group(['middleware' => ['auth']], function() {
 	Route::patch('accounts/{id}',['as'=>'accounts.update','uses'=>'AccountController@update']);
 	Route::delete('accounts/{id}',['as'=>'accounts.destroy','uses'=>'AccountController@destroy']);
 
+	Route::get('employees',['as'=>'employees.index','uses'=>'EmployeeController@index']);
+	Route::get('employees-create',['as'=>'employees.create','uses'=>'EmployeeController@create']);
+	Route::post('employees/create',['as'=>'employees.store','uses'=>'EmployeeController@store']);
+	Route::get('employees-{id}',['as'=>'employees.show','uses'=>'EmployeeController@show']);
+	Route::get('employees-edit-{id}',['as'=>'employees.edit','uses'=>'EmployeeController@edit']);
+	Route::patch('employees/{id}',['as'=>'employees.update','uses'=>'EmployeeController@update']);
+	Route::delete('employees/{id}',['as'=>'employees.destroy','uses'=>'EmployeeController@destroy']);
+
     Route::get('roles',['as'=>'roles.index','uses'=>'RoleController@index']);
 	Route::get('roles/create',['as'=>'roles.create','uses'=>'RoleController@create']);
 	Route::post('roles/create',['as'=>'roles.store','uses'=>'RoleController@store']);
