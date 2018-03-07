@@ -43,7 +43,7 @@ Route::group(['middleware' => ['auth']], function() {
 	Route::get('employees-create',['as'=>'employees.create','uses'=>'EmployeeController@create']);
 	Route::post('employees/create',['as'=>'employees.store','uses'=>'EmployeeController@store']);
 	Route::get('employees-{id}',['as'=>'employees.show','uses'=>'EmployeeController@show']);
-	Route::get('employees-edit-{id}',['as'=>'employees.edit','uses'=>'EmployeeController@edit']);
+	Route::get('employees_edit-{id}',['as'=>'employees.edit','uses'=>'EmployeeController@edit']);
 	Route::patch('employees/{id}',['as'=>'employees.update','uses'=>'EmployeeController@update']);
 	Route::delete('employees/{id}',['as'=>'employees.destroy','uses'=>'EmployeeController@destroy']);
 

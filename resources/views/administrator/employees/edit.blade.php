@@ -22,80 +22,92 @@
         </div>
     @endif
     {!! Form::model($user, ['method' => 'PATCH','route' => ['employees.update', $user->id]]) !!}
-    <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>Name:</strong>
-                {!! Form::text('name', null, array('placeholder' => 'Name','class' => 'form-control')) !!}
+        <div class="form-group row">
+                <label class="col-xl-2 col-form-label">Name</label>
+                <div class="col-xl-10">
+                    {!! Form::text('name', null, array('placeholder' => 'Name','class' => 'form-control')) !!}
+                </div>
             </div>
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>Email:</strong>
-                {!! Form::text('email', null, array('placeholder' => 'Email','class' => 'form-control')) !!}
+            <div class="form-group row">
+                <label class="col-xl-2 col-form-label">Address</label>
+                <div class="col-xl-10">
+                {!! Form::text('address', null, array('placeholder' => 'Physical Address','class' => 'form-control')) !!}
+                </div>
             </div>
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>Phone:</strong>
-                {!! Form::text('phone', null, array('placeholder' => 'Phone','class' => 'form-control')) !!}
+            <div class="form-group row">
+                <label class="col-xl-2 col-form-label">Email</label>
+                <div class="col-xl-10">
+                    {!! Form::text('email', null, array('placeholder' => 'Email','class' => 'form-control')) !!}
+                </div>
             </div>
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>Address:</strong>
-                {!! Form::text('address', null, array('placeholder' => 'Address','class' => 'form-control')) !!}
+            <div class="form-group row">
+                <label class="col-xl-2 col-form-label">Phone Number</label>
+                <div class="col-xl-10">
+                {!! Form::text('phone', null, array('placeholder' => 'Phone Number','class' => 'form-control')) !!}
+                </div>
             </div>
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>Contact Person:</strong>
-                {!! Form::text('contact_person', null, array('placeholder' => 'contact_person','class' => 'form-control')) !!}
+            <div class="form-group row">
+                <label class="col-xl-2 col-form-label">Sex</label>
+                <div class="col-xl-10">
+                <select name="sex" class="custom-select custom-select-sm">
+                    <option value="{{$user->sex}}">{{$user->sex}}</option>
+                    <option value="M">Male</option>
+                    <option value="F">Female</option>
+                    <option value="O">Other</option>
+                </select>
+                </div>
             </div>
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>Company Type:</strong>
-                <select name="company_type" class="form-control custom-select custom-select-sm">
-                        <option value="{{$user->company_type}}">{{$user->company_type}}</option>
-                        <option value="Admin">Administrator</option>
-                        <option value="Company">Company</option>
-                        <option value="Merchant">Merchant</option>
-                    </select>
+            <div class="form-group row">
+                <label class="col-xl-2 col-form-label">NRC/Passport/ID</label>
+                <div class="col-xl-10">
+                {!! Form::text('nrc', null, array('placeholder' => 'Enter ID Number','class' => 'form-control')) !!}
+                </div>
             </div>
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>Account Type:</strong>
-                <select name="account_type" class="form-control custom-select custom-select-sm">
-                        <option value="{{$user->account_type}}">{{$user->account_type}}</option>
-                        <option value="Admin">Administrator</option>
-                        <option value="Company">Company</option>
-                        <option value="Merchant">Merchant</option>
+            <div class="form-group row">
+                <label class="col-xl-2 col-form-label">Salary Scale</label>
+                <div class="col-xl-10">
+                {!! Form::text('salary_scale', null, array('placeholder' => 'Salary Scale','class' => 'form-control')) !!}
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-xl-2 col-form-label">Maximum Advance (%)</label>
+                <div class="col-xl-10">
+                {!! Form::number('max_advance', null, array('placeholder' => 'Enter Maximum Advance','class' => 'form-control')) !!}
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-xl-2 col-form-label">Pay Day</label>
+                <div class="col-xl-10">
+                {!! Form::date('pay_day', null, array('class' => 'form-control')) !!}
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-xl-2 col-form-label">Company</label>
+                <div class="col-xl-10">
+                    <select name="sex" class="custom-select custom-select-sm">
+                        <option value="{{$user->company_id}}">{{$user->company_id}}</option>
                     </select>
                 </div>
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>Password:</strong>
-                {!! Form::password('password', array('placeholder' => 'Password','class' => 'form-control')) !!}
             </div>
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>Confirm Password:</strong>
-                {!! Form::password('confirm-password', array('placeholder' => 'Confirm Password','class' => 'form-control')) !!}
+            <div class="form-group row">
+                <label class="col-xl-2 col-form-label">Employee Number</label>
+                <div class="col-xl-10">
+                {!! Form::text('employee_number', null, array('placeholder' => 'Employee Number','class' => 'form-control')) !!}
+                </div>
             </div>
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>Role:</strong>
-                {!! Form::select('roles[]', $roles,$userRole, array('class' => 'form-control','multiple')) !!}
+            <div class="form-group row">
+                <label class="col-xl-2 col-form-label">Contract Type</label>
+                <div class="col-xl-10">
+                <select name="sex" class="custom-select custom-select-sm">
+                    <option value="{{$user->contract_type}}">{{$user->contract_type}}</option>
+                    <option value="FT">Full Time</option>
+                    <option value="PT">Part Time</option>
+                    <option value="CW">Casual Worker</option>
+                </select>
+                </div>
             </div>
-        </div>
         <div class="col-xs-12 col-sm-12 col-md-12 text-center">
             <button type="submit" class="btn btn-primary">Submit</button>
         </div>
-    </div>
     {!! Form::close() !!}
 @endsection

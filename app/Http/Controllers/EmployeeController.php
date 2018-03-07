@@ -96,12 +96,12 @@ class EmployeeController extends Controller
     {
         $this->validate($request, [
             'name' => 'required',
-            'email' => 'required|email|unique:users,email,'.$id,
-            'password' => 'same:confirm-password',
-            'roles' => 'required'
+            'email' => 'email|unique:users,email,'.$id,
         ]);
 
         $user = Employee::find($id);
+        //Update Employee Input
+        $input = $request->all();
         $user->update($input);
 
         return redirect()->route('employees.index')
