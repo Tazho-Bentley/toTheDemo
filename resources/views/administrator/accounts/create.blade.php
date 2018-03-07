@@ -54,7 +54,6 @@
                 <div class="col-xl-10">
                     <select name="account_type" class="custom-select custom-select-sm">
                         <option value="User">Select Account Type</option>
-                        <option value="Employee">Employee</option>
                         <option value="Company">Company</option>
                         <option value="Merchant">Merchant</option>
                     </select>
@@ -78,9 +77,9 @@
                 </div>
             </div>
             <div class="form-group row">
-                <label class="col-xl-2 col-form-label">Company Pin</label>
+                <label class="col-xl-2 col-form-label">Company/Merchant ID</label>
                 <div class="col-xl-10">
-                {!! Form::text('nrc', null, array('placeholder' => 'NRC Number','class' => 'form-control')) !!}
+                {!! Form::text('company_id', null, array('placeholder' => 'NRC Number','class' => 'form-control')) !!}
                 </div>
             </div>
             <div class="form-group row">
@@ -92,7 +91,13 @@
             <div class="form-group row">
                 <label class="col-xl-2 col-form-label">Pay Schedule</label>
                 <div class="col-xl-10">
-                {!! Form::file('pay_schedule', null, array('class' => 'form-control')) !!}
+                    <select name="pay_schedule" class="custom-select custom-select-sm">
+                        <option value="NULL">Select Schedule Type</option>
+                        <option value="Weekly">Weekly</option>
+                        <option value="Bi-Weekly">Bi-Weekly</option>
+                        <option value="Semi-Monthly">Semi Monthly</option>
+                        <option value="Monthly">Monthly</option>
+                    </select>
                 </div>
             </div>
             <div class="form-group row">

@@ -103,7 +103,7 @@
                 </div>
             </div>
             <div class="form-group row">
-                <label class="col-xl-2 col-form-label">Sex</label>
+                <label class="col-xl-2 col-form-label">Contract Type</label>
                 <div class="col-xl-10">
                 <select name="sex" class="custom-select custom-select-sm">
                     <option value="NULL">Select Contract Type</option>
