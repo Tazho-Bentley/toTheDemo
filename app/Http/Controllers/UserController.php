@@ -32,7 +32,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        $roles = Role::lists('display_name','id');
+        $roles = Role::pluck('display_name','id');
         return view('administrator.users.create',compact('roles'));
     }
 
@@ -47,6 +47,11 @@ class UserController extends Controller
     {
         $this->validate($request, [
             'name' => 'required',
+            'phone' => 'required',
+            'address' => 'required',
+            'contact_person' => 'required',
+            'company_type' => 'required',
+            'account_type' => 'required',
             'email' => 'required|email|unique:users,email',
             'password' => 'required|same:confirm-password',
             'roles' => 'required'
@@ -63,8 +68,7 @@ class UserController extends Controller
         }
 
 
-        return redirect()->route('administrator.users.index')
-                        ->with('success','User created successfully');
+        return redirect()->route('users.index')->with('success','User created successfully');
     }
 
 
@@ -90,8 +94,8 @@ class UserController extends Controller
     public function edit($id)
     {
         $user = User::find($id);
-        $roles = Role::lists('display_name','id');
-        $userRole = $user->roles->lists('id','id')->toArray();
+        $roles = Role::pluck('display_name','id');
+        $userRole = $user->roles->pluck('id','id')->toArray();
 
 
         return view('administrator.users.edit',compact('user','roles','userRole'));
@@ -133,7 +137,7 @@ class UserController extends Controller
         }
 
 
-        return redirect()->route('administrator.users.index')
+        return redirect()->route('users.index')
                         ->with('success','User updated successfully');
     }
 
@@ -147,7 +151,7 @@ class UserController extends Controller
     public function destroy($id)
     {
         User::find($id)->delete();
-        return redirect()->route('administrator.users.index')
+        return redirect()->route('users.index')
                         ->with('success','User deleted successfully');
     }
 }

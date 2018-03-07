@@ -212,18 +212,24 @@
                      </a>
                   </li>
                   <li class="nav-heading ">
-                     <span data-localize="sidebar.heading.HEADER">Setups</span>
-                  </li>
-                  <li class=" ">
-                     <a href="{{ route('roles.index') }}" title="Widgets">
-                        <em class="icon-grid"></em>
-                        <span data-localize="sidebar.nav.WIDGETS">Manage Roles</span>
-                     </a>
+                     <span data-localize="sidebar.heading.HEADER">SU Setups</span>
                   </li>
                   <li class=" ">
                      <a href="{{ route('users.index') }}" title="Widgets">
                         <em class="icon-grid"></em>
-                        <span data-localize="sidebar.nav.WIDGETS">Manage Super Users</span>
+                        <span data-localize="sidebar.nav.WIDGETS">Manage Accounts</span>
+                     </a>
+                  </li>
+                  <li class=" ">
+                     <a href="{{ route('roles.index') }}" title="Widgets">
+                        <em class="icon-grid"></em>
+                        <span data-localize="sidebar.nav.WIDGETS">Manage System Roles</span>
+                     </a>
+                  </li>
+                  <li class=" ">
+                     <a href="{{ route('roles.index') }}" title="Widgets">
+                        <em class="icon-grid"></em>
+                        <span data-localize="sidebar.nav.WIDGETS">Manage System Permissions</span>
                      </a>
                   </li>
                </ul>

@@ -23,7 +23,13 @@ Route::group(['middleware' => ['auth']], function() {
 	Route::get('/home', 'HomeController@index')->name('home');
 
 
-	Route::resource('users','UserController');
+	Route::get('users',['as'=>'users.index','uses'=>'UserController@index']);
+	Route::get('users-create',['as'=>'users.create','uses'=>'UserController@create']);
+	Route::post('users/create',['as'=>'users.store','uses'=>'UserController@store']);
+	Route::get('users-{id}',['as'=>'users.show','uses'=>'UserController@show']);
+	Route::get('users-{id}-edit',['as'=>'users.edit','uses'=>'UserController@edit']);
+	Route::patch('users/{id}',['as'=>'users.update','uses'=>'UserController@update']);
+	Route::delete('users/{id}',['as'=>'users.destroy','uses'=>'UserController@destroy']);
 
 
     Route::get('roles',['as'=>'roles.index','uses'=>'RoleController@index']);
