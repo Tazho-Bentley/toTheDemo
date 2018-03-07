@@ -4,10 +4,10 @@
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
-                <h2>Create New Account</h2>
+                <h2>Create New Employee</h2>
             </div>
             <div class="pull-right">
-                <a class="btn btn-primary" href="{{ route('accounts.index') }}"> Back</a>
+                <a class="btn btn-primary" href="{{ route('employees.index') }}"> Back</a>
             </div>
         </div>
     </div>
@@ -21,7 +21,7 @@
             </ul>
         </div>
     @endif
-    {!! Form::open(array('route' => 'accounts.store','method'=>'POST', 'class'=>'form-horizontal')) !!}
+    {!! Form::open(array('route' => 'employees.store','method'=>'POST', 'class'=>'form-horizontal')) !!}
     <!-- START card-->
     <div class="card card-default">
         <div class="card-body">
@@ -50,37 +50,32 @@
                 </div>
             </div>
             <div class="form-group row">
-                <label class="col-xl-2 col-form-label">Account Type</label>
+                <label class="col-xl-2 col-form-label">Sex</label>
                 <div class="col-xl-10">
-                    <select name="account_type" class="custom-select custom-select-sm">
-                        <option value="User">Select Account Type</option>
-                        <option value="Employee">Employee</option>
-                        <option value="Company">Company</option>
-                        <option value="Merchant">Merchant</option>
-                    </select>
+                <select name="sex" class="custom-select custom-select-sm">
+                    <option value="NULL">Select Sex</option>
+                    <option value="M">Male</option>
+                    <option value="F">Female</option>
+                    <option value="O">Other</option>
+                </select>
                 </div>
             </div>
             <div class="form-group row">
-                <label class="col-xl-2 col-form-label">Company Type</label>
+                <label class="col-xl-2 col-form-label">NRC/Passport/ID</label>
                 <div class="col-xl-10">
-                    <select name="company_type" class="custom-select custom-select-sm">
-                        <option value="Company">Select Company Type</option>
-                        <option value="Admin">Administrator</option>
-                        <option value="Company">Company</option>
-                        <option value="Merchant">Merchant</option>
-                    </select>
+                {!! Form::text('nrc', null, array('placeholder' => 'Enter ID Number','class' => 'form-control')) !!}
                 </div>
             </div>
             <div class="form-group row">
-                <label class="col-xl-2 col-form-label">Contact Person</label>
+                <label class="col-xl-2 col-form-label">Salary Scale</label>
                 <div class="col-xl-10">
-                {!! Form::text('contact_person', null, array('placeholder' => 'Contact Person','class' => 'form-control')) !!}
+                {!! Form::text('salary_scale', null, array('placeholder' => 'Salary Scale','class' => 'form-control')) !!}
                 </div>
             </div>
             <div class="form-group row">
-                <label class="col-xl-2 col-form-label">Company Pin</label>
+                <label class="col-xl-2 col-form-label">Maximum Advance (%)</label>
                 <div class="col-xl-10">
-                {!! Form::text('nrc', null, array('placeholder' => 'NRC Number','class' => 'form-control')) !!}
+                {!! Form::number('max_advance', null, array('placeholder' => 'Enter Maximum Advance','class' => 'form-control')) !!}
                 </div>
             </div>
             <div class="form-group row">
@@ -90,32 +85,37 @@
                 </div>
             </div>
             <div class="form-group row">
-                <label class="col-xl-2 col-form-label">Pay Schedule</label>
+                <label class="col-xl-2 col-form-label">Pay Day</label>
                 <div class="col-xl-10">
-                {!! Form::file('pay_schedule', null, array('class' => 'form-control')) !!}
+                {!! Form::date('pay_day', null, array('class' => 'form-control')) !!}
                 </div>
             </div>
             <div class="form-group row">
-                <label class="col-xl-2 col-form-label">Password</label>
+                <label class="col-xl-2 col-form-label">Company</label>
                 <div class="col-xl-10">
-                    {!! Form::password('password', array('placeholder' => 'Password','class' => 'form-control')) !!}
+                {!! Form::date('pay_day', null, array('class' => 'form-control')) !!}
                 </div>
             </div>
             <div class="form-group row">
-                <label class="col-xl-2 col-form-label">Repeat Password</label>
+                <label class="col-xl-2 col-form-label">Employee Number</label>
                 <div class="col-xl-10">
-                    {!! Form::password('confirm-password', array('placeholder' => 'Confirm Password','class' => 'form-control')) !!}
+                {!! Form::text('employee_number', null, array('placeholder' => 'Employee Number','class' => 'form-control')) !!}
                 </div>
             </div>
             <div class="form-group row">
-                <label class="col-xl-2 col-form-label">Account System Roles</label>
+                <label class="col-xl-2 col-form-label">Sex</label>
                 <div class="col-xl-10">
-                    {!! Form::select('roles[]', $roles,[], array('class' => 'form-control','multiple')) !!}
+                <select name="sex" class="custom-select custom-select-sm">
+                    <option value="NULL">Select Contract Type</option>
+                    <option value="FT">Full Time</option>
+                    <option value="PT">Part Time</option>
+                    <option value="CW">Casual Worker</option>
+                </select>
                 </div>
             </div>
             <div class="form-group row">
                 <div class="col-xl-10">
-                    <button class="btn btn-sm btn-secondary" type="submit">Create Account</button>
+                    <button class="btn btn-sm btn-secondary" type="submit">Create Employee</button>
                 </div>
             </div>
         </div>

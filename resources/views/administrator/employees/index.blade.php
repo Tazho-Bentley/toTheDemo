@@ -4,10 +4,10 @@
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
-                <h2>Accounts Management</h2>
+                <h2>Employee Management</h2>
             </div>
             <div class="pull-right">
-                <a class="btn btn-success" href="{{ route('accounts.create') }}"> Create New Account</a>
+                <a class="btn btn-success" href="{{ route('employees.create') }}"> Create New Account</a>
             </div>
         </div>
     </div>
@@ -37,9 +37,9 @@
                     @endif
                 </td>
                 <td>
-                    <a class="btn btn-info" href="{{ route('accounts.show',$user->id) }}">Show</a>
-                    <a class="btn btn-primary" href="{{ route('accounts.edit',$user->id) }}">Edit</a>
-                    {!! Form::open(['method' => 'DELETE','route' => ['accounts.destroy', $user->id],'style'=>'display:inline']) !!}
+                    <a class="btn btn-info" href="{{ route('employees.show',$user->id) }}">Show</a>
+                    <a class="btn btn-primary" href="{{ route('employees.edit',$user->id) }}">Edit</a>
+                    {!! Form::open(['method' => 'DELETE','route' => ['employees.destroy', $user->id],'style'=>'display:inline']) !!}
                     {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
                     {!! Form::close() !!}
                 </td>
