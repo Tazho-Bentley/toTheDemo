@@ -79,12 +79,6 @@
                 </div>
             </div>
             <div class="form-group row">
-                <label class="col-xl-2 col-form-label">Number of Employess</label>
-                <div class="col-xl-10">
-                {!! Form::text('employee_count', null, array('placeholder' => 'Employee Count','class' => 'form-control')) !!}
-                </div>
-            </div>
-            <div class="form-group row">
                 <label class="col-xl-2 col-form-label">Pay Day</label>
                 <div class="col-xl-10">
                 {!! Form::date('pay_day', null, array('class' => 'form-control')) !!}
@@ -93,7 +87,7 @@
             <div class="form-group row">
                 <label class="col-xl-2 col-form-label">Company</label>
                 <div class="col-xl-10">
-                {!! Form::date('pay_day', null, array('class' => 'form-control')) !!}
+                {!! Form::select('company_id', $companies,null, array('placeholder' => 'Select Company','class' => 'form-control')) !!}
                 </div>
             </div>
             <div class="form-group row">

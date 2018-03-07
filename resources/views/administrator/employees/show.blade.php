@@ -38,30 +38,44 @@
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Contact Person:</strong>
-                {{ $user->contact_person }}
+                <strong>NRC:</strong>
+                {{ $user->nrc }}
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Company Type:</strong>
-                {{ $user->company_type }}
+                <strong>Sex:</strong>
+                {{ $user->sex }}
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Account Type:</strong>
-                {{ $user->account_type }}
+                <strong>Salary Scale:</strong>
+                {{ $user->salary_scale }}
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Roles:</strong>
-                @if(!empty($user->roles))
-                    @foreach($user->roles as $v)
-                        <label class="label label-success">{{ $v->display_name }}</label>
-                    @endforeach
-                @endif
+                <strong>Max Advance:</strong>
+                {{ $user->max_advance }} %
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>Pay Day:</strong>
+                {{ $user->pay_day }}
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>Employee Number:</strong>
+                {{ $user->employee_number }}
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>Contract Type:</strong>
+                {{ $user->contract_type }}
             </div>
         </div>
     </div>

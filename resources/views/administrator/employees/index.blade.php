@@ -30,11 +30,7 @@
                 <td>{{ $user->name }}</td>
                 <td>{{ $user->email }}</td>
                 <td>
-                    @if(!empty($user->roles))
-                        @foreach($user->roles as $v)
-                            <label class="label label-success">{{ $v->display_name }}</label>
-                        @endforeach
-                    @endif
+                   
                 </td>
                 <td>
                     <a class="btn btn-info" href="{{ route('employees.show',$user->id) }}">Show</a>

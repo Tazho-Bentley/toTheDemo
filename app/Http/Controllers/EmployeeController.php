@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Employee;
 use App\User;
-use App\Role;
 use DB;
 use Hash;
 
@@ -18,7 +18,7 @@ class EmployeeController extends Controller
      */
     public function index(Request $request)
     {
-        $data = User::orderBy('id','DESC')->paginate(5);
+        $data = Employee::orderBy('id','DESC')->paginate(5);
         return view('administrator.employees.index',compact('data'))
             ->with('i', ($request->input('page', 1) - 1) * 5);
     }
@@ -31,8 +31,8 @@ class EmployeeController extends Controller
      */
     public function create()
     {
-        $roles = Role::pluck('display_name','id');
-        return view('administrator.employees.create',compact('roles'));
+        $companies = User::where('company_type','Company')->pluck('name','id');
+        return view('administrator.employees.create',compact('companies'));
     }
 
 
@@ -48,24 +48,12 @@ class EmployeeController extends Controller
             'name' => 'required',
             'phone' => 'required',
             'address' => 'required',
-            'contact_person' => 'required',
-            'company_type' => 'required',
-            'account_type' => 'required',
-            'email' => 'required|email|unique:users,email',
-            'password' => 'required|same:confirm-password',
-            'roles' => 'required'
+            'email' => 'email|unique:employees,email',
         ]);
 
-
+        //Create Employee Input
         $input = $request->all();
-        $input['password'] = Hash::make($input['password']);
-
-
-        $user = User::create($input);
-        foreach ($request->input('roles') as $key => $value) {
-            $user->attachRole($value);
-        }
-
+        Employee::create($input);
 
         return redirect()->route('employees.index')->with('success','Employee created successfully');
     }
@@ -79,7 +67,7 @@ class EmployeeController extends Controller
      */
     public function show($id)
     {
-        $user = User::find($id);
+        $user = Employee::find($id);
         return view('administrator.employees.show',compact('user'));
     }
 
@@ -92,12 +80,8 @@ class EmployeeController extends Controller
      */
     public function edit($id)
     {
-        $user = User::find($id);
-        $roles = Role::pluck('display_name','id');
-        $userRole = $user->roles->pluck('id','id')->toArray();
-
-
-        return view('administrator.employees.edit',compact('user','roles','userRole'));
+        $user = Employee::find($id);
+        return view('administrator.employees.edit',compact('user'));
     }
 
 
@@ -117,24 +101,8 @@ class EmployeeController extends Controller
             'roles' => 'required'
         ]);
 
-
-        $input = $request->all();
-        if(!empty($input['password'])){ 
-            $input['password'] = Hash::make($input['password']);
-        }else{
-            $input = array_except($input,array('password'));    
-        }
-
-
-        $user = User::find($id);
+        $user = Employee::find($id);
         $user->update($input);
-        DB::table('role_user')->where('user_id',$id)->delete();
-
-        
-        foreach ($request->input('roles') as $key => $value) {
-            $user->attachRole($value);
-        }
-
 
         return redirect()->route('employees.index')
                         ->with('success','Employee updated successfully');
@@ -149,7 +117,7 @@ class EmployeeController extends Controller
      */
     public function destroy($id)
     {
-        User::find($id)->delete();
+        Employee::find($id)->delete();
         return redirect()->route('employees.index')
                         ->with('success','Employee deleted successfully');
     }
