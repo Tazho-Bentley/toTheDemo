@@ -79,7 +79,7 @@
             <div class="form-group row">
                 <label class="col-xl-2 col-form-label">Company/Merchant ID</label>
                 <div class="col-xl-10">
-                {!! Form::text('company_id', null, array('placeholder' => 'NRC Number','class' => 'form-control')) !!}
+                {!! Form::text('company_id', null, array('placeholder' => 'Company ID Number','class' => 'form-control')) !!}
                 </div>
             </div>
             <div class="form-group row">

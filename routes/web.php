@@ -35,7 +35,7 @@ Route::group(['middleware' => ['auth']], function() {
 	Route::get('accounts-create',['as'=>'accounts.create','uses'=>'AccountController@create']);
 	Route::post('accounts/create',['as'=>'accounts.store','uses'=>'AccountController@store']);
 	Route::get('accounts-{id}',['as'=>'accounts.show','uses'=>'AccountController@show']);
-	Route::get('accounts-edit-{id}',['as'=>'accounts.edit','uses'=>'AccountController@edit']);
+	Route::get('accounts_edit-{id}',['as'=>'accounts.edit','uses'=>'AccountController@edit']);
 	Route::patch('accounts/{id}',['as'=>'accounts.update','uses'=>'AccountController@update']);
 	Route::delete('accounts/{id}',['as'=>'accounts.destroy','uses'=>'AccountController@destroy']);
 
