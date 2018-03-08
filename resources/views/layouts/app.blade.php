@@ -124,7 +124,7 @@
                         <span data-localize="sidebar.nav.WIDGETS">Information</span>
                      </a>
                   </li>
-                  @role('Administrator')
+                  @role('Admin')
                   <li class="nav-heading ">
                      <span data-localize="sidebar.heading.HEADER">Accounts</span>
                   </li>
@@ -147,7 +147,7 @@
                      </a>
                   </li>
                   @endrole
-                  @role('super-user')
+                  @role('Super_User')
                   <li class="nav-heading ">
                      <span data-localize="sidebar.heading.HEADER">SU Setups</span>
                   </li>
