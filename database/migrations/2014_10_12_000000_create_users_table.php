@@ -24,7 +24,7 @@ class CreateUsersTable extends Migration
             $table->string('contact_person',50);
             $table->string('company_type',20);
             $table->string('account_type',30);
-            $table->string('pay_schedule',20);
+            $table->string('pay_schedule',20)->nullable();
             $table->string('employee_count');
             $table->rememberToken();
             $table->timestamps();

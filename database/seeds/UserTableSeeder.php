@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\User;
 
 class UserTableSeeder extends Seeder
 {
@@ -30,9 +31,8 @@ class UserTableSeeder extends Seeder
         ];
 
         foreach ($user as $key => $value) {
-            $value->password = Hash::make($value->password);
+            $value['password'] = Hash::make($value['password']);
             User::create($value);
-            $user->attachRole(1);
         }
     }
 }
