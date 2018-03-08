@@ -16,7 +16,7 @@ class UserTableSeeder extends Seeder
         $user = [
         	[
         		'name' => 'ZYNLE GROUP',
-        		'email' => 'Display Role Listing',
+        		'email' => 'admin@admin.com',
                 'phone' => '',
                 'address' => '',
         		'company_type' => 'Admin',
