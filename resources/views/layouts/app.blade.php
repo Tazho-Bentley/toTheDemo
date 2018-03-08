@@ -103,10 +103,12 @@
                               </div>
                            </div>
                            <!-- Name and Job-->
+                           @if(!Auth::guest())
                            <div class="user-block-info">
                               <span class="user-block-name">Hello, {{Auth::User()->name}}</span>
                               <span class="user-block-role">{{Auth::User()->email}}</span>
                            </div>
+                           @endif
                         </div>
                      </div>
                   </li>
