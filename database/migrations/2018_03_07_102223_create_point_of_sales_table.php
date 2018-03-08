@@ -15,6 +15,10 @@ class CreatePointOfSalesTable extends Migration
     {
         Schema::create('point_of_sales', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('pos_id',20);
+            $table->string('number',20);
+            $table->string('serial_number',20);
+            $table->string('password',255);
             $table->timestamps();
         });
     }
